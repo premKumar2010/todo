@@ -13,6 +13,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HeaderComponent}         from './header/header.component';
 import {ListsComponent}          from './lists/lists.component';
 import {FormComponent}           from './form/form.component';
+import { PostS } from './core/services/posts.service';
 
 @NgModule({
 	          declarations: [
@@ -32,7 +33,7 @@ import {FormComponent}           from './form/form.component';
               MatExpansionModule,
 		          FormsModule
 	          ],
-	          providers   : [],
+	          providers   : [PostS],
 	          bootstrap   : [AppComponent]
           })
 export class AppModule{}
