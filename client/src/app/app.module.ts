@@ -5,6 +5,7 @@ import {MatCardModule}                from '@angular/material/card';
 import {MatFormFieldModule}           from '@angular/material/form-field';
 import {MatInputModule}               from '@angular/material/input';
 import {MatToolbar, MatToolbarModule} from '@angular/material/toolbar';
+import {MatExpansionModule} from '@angular/material/expansion'
 import {BrowserModule}                from '@angular/platform-browser';
 
 import {AppComponent}            from './app.component';
@@ -28,6 +29,7 @@ import {FormComponent}           from './form/form.component';
 		          MatInputModule,
 		          MatFormFieldModule,
 		          MatButtonModule,
+              MatExpansionModule,
 		          FormsModule
 	          ],
 	          providers   : [],

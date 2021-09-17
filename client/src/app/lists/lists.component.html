@@ -1,1 +1,16 @@
-<p>lists works!</p>
+<div id="lists">
+    <mat-toolbar>
+        <span>Posts</span>
+    </mat-toolbar>
+    <ng-container *ngIf="posts.length">
+        <mat-expansion-panel *ngFor="let post of posts">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{post.title}}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>{{post.desc}}</p>
+        </mat-expansion-panel>
+    </ng-container>
+    <div *ngIf="!posts.length">No Posts available.</div>
+</div>
