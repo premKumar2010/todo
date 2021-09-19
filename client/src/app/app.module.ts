@@ -7,6 +7,7 @@ import {MatInputModule}               from '@angular/material/input';
 import {MatToolbar, MatToolbarModule} from '@angular/material/toolbar';
 import {MatExpansionModule} from '@angular/material/expansion'
 import {BrowserModule}                from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http';
 
 import {AppComponent}            from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -31,7 +32,8 @@ import { PostS } from './core/services/posts.service';
 		          MatFormFieldModule,
 		          MatButtonModule,
               MatExpansionModule,
-		          FormsModule
+		          FormsModule,
+              HttpClientModule
 	          ],
 	          providers   : [PostS],
 	          bootstrap   : [AppComponent]

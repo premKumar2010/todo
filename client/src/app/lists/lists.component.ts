@@ -10,26 +10,24 @@ import { PostS } from '../core/services/posts.service';
   styleUrls: ['./lists.component.css']
 })
 export class ListsComponent implements OnInit, OnDestroy {
+
+
+  public subscriberRef:Subscription
   public posts:Array<TPost>=[];
-  private subscribeRef: Subscription;
 
 
-
-  constructor(private postService:PostS) { }
+  constructor(public postService:PostS) { }
 
 
 
   ngOnInit(): void {
-this.posts=this.postService.getPosts();
-this.subscribeRef=this.postService.subscribePosts().subscribe((value:Array<TPost>)=>{
-  this.posts=value;
-})
+  this.postService.getPosts();
+  this.subscriberRef=this.postService.subscribePosts().subscribe((value:Array<TPost>)=>{
+    this.posts=value;
+  });
   }
 
-ngOnDestroy(){
-this.subscribeRef.unsubscribe();
-}
-
-
-
+  ngOnDestroy(){
+    this.subscriberRef.unsubscribe();
+  }
 }
