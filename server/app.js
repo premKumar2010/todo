@@ -5,16 +5,18 @@ const app = express();
 //adding middlewares
 
 const corsConfig = {
-    orgin: 'http://localhost:4200/',
+    origin: 'http://localhost:4200',
     allowedHeaders: 'Content-Type'
 }
 
 app.use(cors(corsConfig));
 
 app.get('/api/posts', (req, res, next) => {
-    res.status(201).json([{
+    res.status(201)
+    res.send([{
+        "id": 1,
         "title": 'prem',
-        "dsc": 'test'
+        "desc": 'test'
     }]);
 });
 
