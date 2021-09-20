@@ -17,20 +17,26 @@ private posts:Array<TPost>=[];
 private postUpdated=new Subject<TPost[]>()
 
 addPosts(post:TPost):void{
-this.posts.push(post);
-this.postUpdated.next([...this.posts]);
+
+this.httpClient.post('http://localhost:3000/api/posts1', post).subscribe((res)=>{
+  console.log('response', res)
+  this.posts.push(post);
+  this.postUpdated.next([...this.posts]);
+});
+
+
 }
 
  getPosts(){
     this.httpClient.get('http://localhost:3000/api/posts').subscribe((values:any)=>{
       console.log('values', values);
-this.posts=values;
-this.postUpdated.next([...this.posts]);
-});
+      this.posts=values;
+      this.postUpdated.next([...this.posts]);
+    });
 }
 
 subscribePosts(){
-return this.postUpdated.asObservable();
+  return this.postUpdated.asObservable();
 }
 
 
